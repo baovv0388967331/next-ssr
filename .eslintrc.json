@@ -1,0 +1,55 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "prettier",
+    "unused-imports",
+    "simple-import-sort",
+    "import"
+  ],
+  "rules": {
+    "no-mixed-spaces-and-tabs": 0,
+    "no-explicit-any": 0,
+    "prefer-const": 0,
+    "no-unused-vars": 0,
+    "no-console": 1,
+    "simple-import-sort/exports": 1,
+    "simple-import-sort/imports": [
+      1,
+      {
+        "groups": [
+          // Packages. react related packages come first.
+          // Things that start with a letter (or digit or underscore), or @ followed by a letter.
+          ["^@", "^react", "^redux"],
+          // Absolute imports and Relative imports.
+          [
+            "^(utils|themes|styles|components|store|pages|models|assets|api|constant|commons|hocs|antd|services)(/.*|$)"
+          ],
+          // for scss imports.
+          ["^[^.]"]
+        ]
+      }
+    ],
+    "unused-imports/no-unused-imports": 1,
+    "unused-imports/no-unused-vars": 1,
+    "react/no-deprecated": 2,
+    "react/react-in-jsx-scope": 0
+  },
+  "globals": {
+    "process": true
+  }
+}
